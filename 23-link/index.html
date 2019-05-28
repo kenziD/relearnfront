@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link href="reset.css" rel="stylesheet" type="text/css">
+        <link href="default.css" rel="stylesheet" type="text/css" title="default">
+        <link href="fancy.css" rel="alternate stylesheet" type="text/css" title="fancy">
+        <link href="basic.css" rel="alternate stylesheet" type="text/css" title="basic">
+    </head>
+    <body>
+            <form>
+                    <div>
+                      <input type="radio" id="default"
+                       name="contact" value="default" checked>
+                      <label for="default">default</label>
+                  
+                      <input type="radio" id="basic"
+                       name="contact" value="basic">
+                      <label for="basic">basic</label>
+                  
+                      <input type="radio" id="fancy"
+                       name="contact" value="fancy">
+                      <label for="fancy">fancy</label>
+                    </div>
+                  </form>
+        <div>
+            <table>
+                <tr>
+                    <td>abc</td>
+                    <td>abc</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            [].slice.call(document.querySelectorAll('input')).forEach(function(item){
+                item.addEventListener('change',function(e){
+                    let value = this.value;
+                    [].slice.call(document.querySelectorAll('link[title]')).forEach(function(link){
+                        console.log("link title",link.title)
+                        link.disabled = true;
+                        
+                        if(link.title===value){
+                            link.disabled = false
+                        }
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>
